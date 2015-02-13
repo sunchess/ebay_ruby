@@ -20,7 +20,7 @@ Find your App Id on ebay Account
      require 'ebay_ruby'
      c = EbayConnect.new("YOURAPPID", "DE")
 
-     Second argument is eBay GLOBAL-ID
+Second argument is eBay GLOBAL-ID
 
 Send two arguments keyword, number of entry per page
 
