@@ -7,26 +7,22 @@ Ebay access finding API with getting all items.
 
 Add this line to your application's Gemfile:
 
-    gem 'ebay_ruby'
+    gem 'ebay_ruby', github: 'sunchess/ebay_ruby'
 
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install ebay_ruby
 
 ## Usage
 
 Find your App Id on ebay Account
 
      require 'ebay_ruby'
-     c=EbayConnect.new("YOURAPPID")
+     c = EbayConnect.new("YOURAPPID", "DE")
+
+     Second argument is eBay GLOBAL-ID
 
 Send two arguments keyword, number of entry per page
-
-
 
      items = c.find_items_by_keywords("Harry Potter", 3)
      items = c.find_items_by_category("CATEGORY_ID", 3)
