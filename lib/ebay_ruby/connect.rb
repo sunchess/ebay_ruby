@@ -3,8 +3,10 @@ autoload :EbayFindItem, "ebay_ruby/ebay_find_item"
 
 class EbayConnect
 
-  def initialize(app_id)
+  #@params global id should be US, DE, RU etc.
+  def initialize(app_id, global_id='RU')
     @app_id = app_id
+    @global_id = "EBAY-#{global_id.upcase}"
   end
 
   attr_reader :app_id, :build_uri
@@ -41,7 +43,7 @@ class EbayConnect
 
   private
   def build_uri(operation_name, search_keyword, per_page)
-    uri_string = "http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=#{operation_name}&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=#{app_id}&GLOBAL-ID=EBAY-US&RESPONSE-DATA-FORMAT=JSON&#{search_keyword}&paginationInput.entriesPerPage=#{per_page.to_i}"
+    uri_string = "http://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=#{operation_name}&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=#{app_id}&GLOBAL-ID=#{@global_id}&RESPONSE-DATA-FORMAT=JSON&#{search_keyword}&paginationInput.entriesPerPage=#{per_page.to_i}"
     URI(uri_string)
   end
  end
