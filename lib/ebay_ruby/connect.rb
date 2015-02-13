@@ -19,8 +19,7 @@ class EbayConnect
   def find_items_by_keywords(search_keyword, per_page)
     str = __method__.to_s.camelize
     operation_name = str.gsub(str.first, str.first.downcase)
-    #search_param = "keywords=#{URI::encode(search_keyword)}"
-    search_param = "keywords=#{search_keyword.gsub(/(\'|\#|\$|\%|\*)/, "")}"
+    search_param = "keywords=#{URI::encode(search_keyword)}"
     ebay_items = EbayFindItem.new(get_connect(build_uri(operation_name, search_param, per_page)))
     ebay_items.all_items
   end
