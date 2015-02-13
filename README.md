@@ -22,6 +22,7 @@ Find your App Id on ebay Account
 
 Second argument is eBay GLOBAL-ID
 
+
 Send two arguments keyword, number of entry per page
 
      items = c.find_items_by_keywords("Harry Potter", 3)
